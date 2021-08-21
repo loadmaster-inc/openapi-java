@@ -43,7 +43,7 @@ public class OpenApiDemo {
         taskdata.put("pointedContainers", new JSONArray());
         taskdata.put("skuCargoes", new JSONArray());
         JSONObject inputs = new JSONObject();
-        inputs.put("taskData", inputs);
+        inputs.put("taskData", taskdata);
         response = HttpRequest.post("https://openapi.zhuangxiang.com/OptimizeLoadingTask")
                 .header("Authorization", "bearer " + access_token).header("content-type", "application/json")
                 .send(inputs.toJSONString());
