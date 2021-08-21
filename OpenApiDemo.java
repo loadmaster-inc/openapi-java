@@ -42,9 +42,11 @@ public class OpenApiDemo {
         taskdata.put("predefinedModels", new JSONArray());
         taskdata.put("pointedContainers", new JSONArray());
         taskdata.put("skuCargoes", new JSONArray());
-        response = HttpRequest.post("https://optimize.zhuangxiang.com/api/LoadingOptimize/DoLoadingOptimize")
+        JSONObject inputs = new JSONObject();
+        inputs.put("taskData", inputs);
+        response = HttpRequest.post("https://openapi.zhuangxiang.com/OptimizeLoadingTask")
                 .header("Authorization", "bearer " + access_token).header("content-type", "application/json")
-                .send(taskdata.toJSONString());
+                .send(inputs.toJSONString());
         System.out.println(response.body());
     }
 }
