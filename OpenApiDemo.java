@@ -44,7 +44,7 @@ public class OpenApiDemo {
         taskdata.put("skuCargoes", new JSONArray());
         JSONObject inputs = new JSONObject();
         inputs.put("taskData", taskdata);
-        response = HttpRequest.post("https://openapi.zhuangxiang.com/OptimizeLoadingTask")
+        response = HttpRequest.post("https://openapiv2.zhuangxiang.com/OptimizeLoadingTask")
                 .header("Authorization", "bearer " + access_token).header("content-type", "application/json")
                 .send(inputs.toJSONString()); // 发送请求，使用access_token进行认证，Body为要计算的数据
         System.out.println(response.body());
