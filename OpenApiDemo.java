@@ -4,7 +4,7 @@ import org.json.simple.parser.JSONParser;
 
 public class OpenApiDemo {
     public static void main(String[] args) {
-        HttpRequest response = HttpRequest.post("https://api.zhuangxiang.com/connect/token") // URL
+        HttpRequest response = HttpRequest.post("https://api3.zhuangxiang.com/connect/token") // URL
                 .header("Cookie", "Abp.TenantId={your tenant id}") // 设置Cookie，使用租户id
                 .header("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8") // 设置HTTP Body类型
                 .send("client_id={your app id}&client_secret={your app secret}&grant_type=password&username={your account name(admin)}&password={your password}"); // 填写app-id、app-secret、账号及密码，然后发送请求
@@ -44,7 +44,7 @@ public class OpenApiDemo {
         taskdata.put("skuCargoes", new JSONArray());
         JSONObject inputs = new JSONObject();
         inputs.put("taskData", taskdata);
-        response = HttpRequest.post("https://openapiv2.zhuangxiang.com/OptimizeLoadingTask")
+        response = HttpRequest.post("https://openapiv3.zhuangxiang.com/OptimizeLoadingTask")
                 .header("Authorization", "bearer " + access_token).header("content-type", "application/json")
                 .send(inputs.toJSONString()); // 发送请求，使用access_token进行认证，Body为要计算的数据
         System.out.println(response.body());
